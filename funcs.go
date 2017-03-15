@@ -2,6 +2,7 @@ package prompter
 
 import (
 	"regexp"
+	"strconv"
 	"strings"
 )
 
@@ -69,4 +70,15 @@ func Regexp(message string, reg *regexp.Regexp, defaultAnswer string) string {
 		Regexp:  reg,
 		Default: defaultAnswer,
 	}).Prompt()
+}
+
+func Menu(message string, choices []string, defaultMenuItem int, menuPrompt string) int {
+	result, _ := strconv.Atoi((&Prompter{
+		Message:         message,
+		Choices:         choices,
+		DefaultMenuItem: defaultMenuItem,
+		IsMenu:          true,
+		MenuPrompt:      menuPrompt,
+	}).Prompt())
+	return result
 }

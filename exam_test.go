@@ -68,4 +68,3 @@ func ExampleYesNo() {
 	// Do you like beer? (yes/no) [no]: no
 	// Oops!
 }
-
